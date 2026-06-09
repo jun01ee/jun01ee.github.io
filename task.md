@@ -1,330 +1,187 @@
-# Website Update Tasks
+# Remaining Website Tasks
 
-Use this checklist to verify, replace, or remove materials in the current `2026-redesign` branch. Paths are relative to the repository root.
+Last checked: branch `2026-redesign` at `5ec090e`, clean and tracking `origin/2026-redesign`.
 
-## Active Figures And Images
+The legacy asset cleanup is done on this branch. The current repo only contains the rebuilt static site, Font Awesome assets, redirect pages, and five active images:
 
-These image paths are currently referenced by the rebuilt website.
+- `images/avatar.jpg`
+- `images/icon.jpg`
+- `images/m8.jpg`
+- `images/mosaic.JPG`
+- `images/tibet.jpg`
 
-| Current path | Current use | Where to update | Task |
-| --- | --- | --- | --- |
-| `images/avatar.jpg` | Hero portrait, preload image, OpenGraph/Twitter preview image | `index.html` | Verify this is the preferred recruiter-facing headshot. Replace image or update all references if using a new filename. |
-| `images/icon.jpg` | Browser favicon | `index.html` | Verify the favicon works and is acceptable. Replace with a proper square favicon if preferred. |
-| `images/mosaic.JPG` | Large-Scale Astronomical Data Pipeline project visual | `assets/js/site-data.js` | Verify whether this is the best image for the HST pipeline card. Replace with a schematic or pipeline diagram if available. |
-| `images/tibet.jpg` | Beyond Work travel thumbnail | `assets/js/site-data.js` | Verify this is the preferred travel image. Replace with a Europe/conference or Asia travel image if more relevant. |
-| `images/m8.jpg` | Beyond Work photography/telescope imaging thumbnail | `assets/js/site-data.js` | Verify this is the preferred telescope-based astronomical image. Replace with a stronger stacked deep-sky image if available. |
+## 1. Add Or Update The CV
 
-## Expected Files Not Yet Added
+- Current link path: `assets/Juno_Li_CV.pdf`
+- Current status: file is missing.
+- Used in: `index.html`
+- Task: add the latest CV PDF at exactly `assets/Juno_Li_CV.pdf`, or change every CV link in `index.html`.
 
-| Expected path | Current use | Task |
-| --- | --- | --- |
-| `assets/Juno_Li_CV.pdf` | Download CV buttons and CV text link | Add the latest CV PDF at this path, or update both links in `index.html`. |
-| `images/solar-forecast.png` | README example only, not currently used | Add the actual solar forecast output image if available, then update the Solar project demo in `assets/js/site-data.js`. |
+Check after adding:
 
-## Image Specs And Quality Bar
+```bash
+test -f assets/Juno_Li_CV.pdf
+```
 
-Use consistent, recruiter-facing image quality. Prefer lowercase, hyphenated filenames with no spaces, for example `images/solar-forecast-2026-06.png`.
+## 2. Replace Or Confirm Active Images
 
-| Image type | Ideal aspect ratio | Ideal size | Minimum acceptable | Format | Notes |
+| Current path | Current dimensions | Current use | Minimum target | Ideal target | Remaining task |
 | --- | --- | --- | --- | --- | --- |
-| Hero portrait / headshot | `1:1` square | `1200 x 1200 px` | `600 x 600 px` | JPG or PNG | Face should remain clear after circular/square cropping. Avoid low-light, busy, or overly casual photos. |
-| Favicon / icon | `1:1` square | `512 x 512 px` | `256 x 256 px` | PNG or ICO | Use a clean mark or portrait crop that remains legible at browser-tab size. |
-| Social preview image | `1.91:1` | `1200 x 630 px` | `1200 x 630 px` | JPG or PNG | Optional but recommended. Current site uses `images/avatar.jpg`; a dedicated `images/social-preview.jpg` would look better in link previews. |
-| Project screenshots / forecast plots | `16:10` or `4:3` | `1600 x 1000 px` or `1600 x 1200 px` | `1000 x 625 px` | PNG preferred | Text, axes, legends, and labels must remain readable when the card is about `360 px` wide. |
-| Architecture diagrams / flowcharts | `16:9`, `16:10`, or scalable SVG | SVG preferred, otherwise `1920 x 1080 px` or `1600 x 1000 px` | `1200 x 750 px` | SVG or PNG | Prefer SVG for Miro exports. If using PNG, export at 2x and check small-screen readability. |
-| Dashboard screenshots | `16:9` or `16:10` | `1920 x 1080 px` or `1600 x 1000 px` | `1280 x 720 px` | PNG | Use a full dashboard or a focused crop. KPI labels and chart legends must be readable. |
-| Beyond Work thumbnails | `4:3` | `1200 x 900 px` | `800 x 600 px` | JPG or PNG | The CSS crops these thumbnails to `4:3`; keep important subject matter near the center. |
-| Telescope/deep-sky images | `4:3` or source crop | `1200 x 900 px` | `800 x 600 px` | JPG or PNG | Use stacked/processed output with controlled noise and contrast. Avoid images that read as blurry thumbnails. |
+| `images/avatar.jpg` | `279 x 279` | Hero portrait, preload image, social preview fallback | `600 x 600` | `1200 x 1200` | Replace with a higher-resolution recruiter-facing headshot, or accept the current low-resolution image. |
+| `images/icon.jpg` | `538 x 538` | Favicon | `256 x 256` | `512 x 512` | Meets size target. Only replace if you want a cleaner favicon. |
+| `images/mosaic.JPG` | `641 x 569` | Large-Scale Astronomical Data Pipeline visual | `1000 x 625` for screenshots, or `1200 x 750` for diagrams | `1600 x 1000` or SVG/PNG schematic | Replace with a clearer pipeline schematic, HST metadata/overlap visual, or higher-resolution project figure. |
+| `images/tibet.jpg` | `201 x 360` | Beyond Work travel thumbnail | `800 x 600` | `1200 x 900` | Replace with a higher-resolution `4:3` travel/collaboration image. Current image is below target and portrait-oriented. |
+| `images/m8.jpg` | `1418 x 1042` | Beyond Work telescope imaging thumbnail | `800 x 600` | `1200 x 900` | Meets minimum. Verify crop and visual quality in the card; replace only if you prefer a stronger stacked image. |
 
-General quality targets:
+General image rules:
 
-- Keep individual website images under about `1 MB` where practical; under `500 KB` is better for simple photos.
+- Use lowercase, hyphenated filenames with no spaces.
 - Use PNG for charts, dashboards, diagrams, and screenshots with text.
-- Use JPG for photographic images unless PNG is visibly better.
-- Avoid upscaling small source images just to meet dimensions.
-- Check each image on desktop and mobile after replacement.
+- Use JPG for photography unless PNG is visibly better.
+- Keep important subjects near the center because cards crop images.
+- Keep most images under `1 MB`; under `500 KB` is better for simple photos.
 - Update alt text in `index.html` or `assets/js/site-data.js` whenever an image changes.
 
-## Hyperlinks To Verify
+## 3. Optional Dedicated Social Preview Image
 
-### Main Site Links
+- Current social preview: `https://jun01ee.github.io/images/avatar.jpg`
+- Current issue: `images/avatar.jpg` is square and low resolution.
+- Recommended asset: `images/social-preview.jpg`
+- Target: `1200 x 630`, aspect ratio `1.91:1`.
+- Task: create a dedicated social card image and update `og:image` and `twitter:image` in `index.html`.
 
-| Link | Label/use | Where |
-| --- | --- | --- |
-| `https://jun01ee.github.io/` | Canonical URL and structured data URL | `index.html` |
-| `https://jun01ee.github.io/images/avatar.jpg` | Social preview image | `index.html` |
-| `#main` | Skip link | `index.html` |
-| `#top` | Brand and back-to-top link | `index.html` |
-| `#projects` | Navigation and project call-to-action | `index.html` |
-| `#capabilities` | Navigation | `index.html` |
-| `#experience` | Navigation | `index.html` |
-| `#contact` | Navigation | `index.html` |
-| `/assets/Juno_Li_CV.pdf` | CV download and CV placeholder link | `index.html` |
-| `mailto:juno.li.research@gmail.com` | Contact button and email link | `index.html` |
+## 4. Replace Project Placeholders
 
-### External Profile Links
-
-| Link | Label/use | Where |
-| --- | --- | --- |
-| `https://github.com/jun01ee` | GitHub profile | `index.html` |
-| `https://gitlab.com/jun01ee` | GitLab profile | `index.html` |
-| `https://www.linkedin.com/in/jun01ee/` | LinkedIn profile | `index.html` |
-| `https://scholar.google.com/citations?user=Q0zwr3cAAAAJ&hl=en&authuser=1` | Google Scholar profile | `index.html` |
-
-### Project Links
-
-| Link | Project | Where |
-| --- | --- | --- |
-| `https://github.com/jun01ee/solar-yield-forecasting-pipeline` | Solar Yield Forecasting MLOps Pipeline | `assets/js/site-data.js` |
-| `https://gitlab.com/jun01ee/data-engineering-zoomcamp` | Data Engineering Zoomcamp Capstone | `assets/js/site-data.js` |
-| `https://github.com/jun01ee/OpenEvolve` | OpenEvolve AI Experiments | `assets/js/site-data.js` |
-
-### Redirect Page Links
-
-| Link | Use | Where |
-| --- | --- | --- |
-| `https://jun01ee.github.io/#projects` | Canonical target for old pages | `research.html`, `observation.html` |
-| `./#projects` | Visible redirect fallback button | `research.html`, `observation.html` |
-
-## Placeholders To Replace Or Confirm
-
-### CV
-
-- Title/label: `Download CV`, `CV placeholder`
-- Path: `/assets/Juno_Li_CV.pdf`
-- Current status: file not present in the branch.
-- Task: add latest CV PDF or change the path in `index.html`.
-
-### Hero Headshot
-
-- Title/label: `Headshot image placeholder`
-- Current image: `images/avatar.jpg`
-- Task: confirm this image is current and professional enough for recruiters.
+All project placeholders are in `assets/js/site-data.js`.
 
 ### Solar Yield Forecasting MLOps Pipeline
 
-- Placeholder title: `Live 7-day forecast output will appear here.`
-- Placeholder description: `Replace this with the latest forecast PNG or published output path when available.`
-- Current embedding/image: placeholder graphic generated by CSS/JS, no real image.
-- Preferred replacement: latest forecast PNG/output from the project.
-- Update location: `assets/js/site-data.js`
+- Current placeholder title: `Live 7-day forecast output will appear here.`
+- Current placeholder description: `Replace this with the latest forecast PNG or published output path when available.`
+- Needed asset: latest forecast PNG/output.
+- Target: PNG, `16:10` or `4:3`, minimum `1000 x 625`, ideal `1600 x 1000`.
+- Task: change the demo from `type: "placeholder"` to `type: "image"`.
+
+Example:
+
+```js
+demo: {
+  type: "image",
+  image: "images/solar-forecast.png",
+  alt: "Seven-day solar irradiance forecast output",
+  caption: "Latest daily forecast published by the scheduled pipeline."
+}
+```
 
 ### Spatially Resolved Galaxy Spectra Analysis Software
 
-- Placeholder title: `Program architecture flowchart coming soon.`
-- Placeholder description: `Preferred replacement: exported Miro SVG or PNG. A public Miro link can be added as a secondary link.`
-- Current embedding/image: placeholder architecture graphic generated by CSS/JS.
-- Preferred replacement: exported Miro SVG/PNG/PDF. Use public Miro link only as secondary support, not the only visual.
-- Update location: `assets/js/site-data.js`
+- Current placeholder title: `Program architecture flowchart coming soon.`
+- Needed asset: Miro architecture export.
+- Preferred format: SVG.
+- PNG fallback: `16:9` or `16:10`, minimum `1200 x 750`, ideal `1920 x 1080` or `1600 x 1000`.
+- Task: add exported architecture visual and update the project demo.
+- Optional: add a public Miro link as a secondary link only if it works without permissions.
 
 ### Visualisation / Dashboarding Portfolio
 
-- Placeholder title: `Dashboard screenshots coming soon.`
-- Placeholder description: `Choose the business theme and add screenshots, KPI notes, and the future Power BI/Tableau/GitHub link.`
-- Current embedding/image: placeholder dashboard graphic generated by CSS/JS.
-- Preferred replacement: dashboard screenshots, KPI notes, data model/star schema, insight brief, and final repo or BI link.
-- Update location: `assets/js/site-data.js`
+- Current placeholder title: `Dashboard screenshots coming soon.`
+- Needed decisions/assets: dashboard theme, screenshot, KPI list, data model/star schema, insight brief, recommendations, and final Power BI/Tableau/GitHub link.
+- Target image: PNG, `16:9` or `16:10`, minimum `1280 x 720`, ideal `1920 x 1080`.
+- Task: replace placeholder demo and update the project description when the BI project exists.
 
 ### Data Engineering Zoomcamp Capstone
 
-- Placeholder title: `Architecture diagram placeholder.`
-- Placeholder description: `Add a pipeline diagram or README screenshot when ready.`
-- Current embedding/image: placeholder pipeline graphic generated by CSS/JS.
-- Preferred replacement: architecture diagram or README screenshot.
-- Update location: `assets/js/site-data.js`
+- Current placeholder title: `Architecture diagram placeholder.`
+- Needed asset: architecture diagram or README screenshot.
+- Target: SVG preferred, or PNG `16:9`/`16:10`, minimum `1200 x 750`.
+- Task: replace placeholder pipeline graphic.
 
 ### OpenEvolve AI Experiments
 
-- Placeholder title: `Experiment summary coming soon.`
-- Placeholder description: `Add best result, scoring trace, or log screenshot.`
-- Current embedding/image: placeholder AI/log graphic generated by CSS/JS.
-- Preferred replacement: experiment summary, log screenshot, scoring trace, or best-result image.
-- Update location: `assets/js/site-data.js`
+- Current placeholder title: `Experiment summary coming soon.`
+- Needed asset/content: best result, scoring trace, log screenshot, or concise experiment summary.
+- Target screenshot: PNG, `16:10` or `4:3`, minimum `1000 x 625`.
+- Task: replace placeholder AI/log graphic.
 
 ### Large-Scale Astronomical Data Pipeline
 
-- Current title/caption: `Schematic visual placeholder for archival image processing and overlap detection.`
 - Current image: `images/mosaic.JPG`
-- Current status: real image used as a placeholder-style visual.
-- Preferred replacement: schematic, pipeline diagram, or clearer HST metadata/overlap visual.
-- Update location: `assets/js/site-data.js`
+- Current caption: `Schematic visual placeholder for archival image processing and overlap detection.`
+- Task: replace with a clearer project visual or update caption if keeping the current image.
 
-### Beyond Work
+## 5. Finish Beyond Work Visuals
 
-- Running placeholder: `12 km`
-- Running image: none yet.
-- Travel image: `images/tibet.jpg`
-- Photography/telescope image: `images/m8.jpg`
-- Task: replace running placeholder with an actual race/training image only if desired. Verify travel and telescope thumbnails.
+Beyond Work content is in `assets/js/site-data.js`.
 
-## Optional Content Decisions
+- Running: currently uses a `12 km` text placeholder. Add a race/running image only if desired.
+- Travel: replace `images/tibet.jpg` because it is low-resolution and portrait-oriented.
+- Photography: `images/m8.jpg` meets minimum size. Verify thumbnail crop and replace only if desired.
 
-- Decide whether to add a Canva CV link.
-- Decide whether to include publications as a small secondary section.
-- Decide whether to include work-rights/visa information.
-- Decide whether the site should weight Data Science, Data Engineering, BI, and AI/ML equally or prioritise one track.
-- Decide whether to keep `research.html` and `observation.html` as redirects for old URLs.
+Target for Beyond Work thumbnails:
 
-## Assets Not Referenced By The Current Website
+- Aspect ratio: `4:3`
+- Minimum: `800 x 600`
+- Ideal: `1200 x 900`
 
-These files are present but are not referenced by `index.html`, `research.html`, `observation.html`, `assets/js/site-data.js`, or the active stylesheet/scripts. Verify before deleting because some may still be useful source material for future screenshots or thumbnails.
+## 6. Manually Verify Links Before Public Launch
 
-### Unused Images
+Internal links:
 
-- `images/BLcam.JPG`
-- `images/archery.jpg`
-- `images/banner.jpg`
-- `images/banner3.jpg`
-- `images/dome.png`
-- `images/m13.jpg`
-- `images/m20.jpg`
-- `images/m27.jpg`
-- `images/m57.jpg`
-- `images/m8.png`
-- `images/mcmc.JPG`
-- `images/model.JPG`
-- `images/moon.jpg`
-- `images/pic01.jpg`
-- `images/pic02.jpg`
-- `images/pic03.jpg`
-- `images/radio.png`
-- `images/residual-color-compare.png`
-- `images/spec.JPG`
+- `#projects`
+- `#capabilities`
+- `#experience`
+- `#contact`
+- `#top`
 
-Recommended cleanup for a clean public branch:
+External links:
 
-```bash
-git rm images/BLcam.JPG images/archery.jpg images/banner.jpg images/banner3.jpg images/dome.png
-git rm images/m13.jpg images/m20.jpg images/m27.jpg images/m57.jpg images/m8.png
-git rm images/mcmc.JPG images/model.JPG images/moon.jpg images/pic01.jpg images/pic02.jpg images/pic03.jpg
-git rm images/radio.png images/residual-color-compare.png images/spec.JPG
-```
+- `https://github.com/jun01ee`
+- `https://gitlab.com/jun01ee`
+- `https://www.linkedin.com/in/jun01ee/`
+- `https://scholar.google.com/citations?user=Q0zwr3cAAAAJ&hl=en&authuser=1`
+- `https://github.com/jun01ee/solar-yield-forecasting-pipeline`
+- `https://gitlab.com/jun01ee/data-engineering-zoomcamp`
+- `https://github.com/jun01ee/OpenEvolve`
+- `mailto:juno.li.research@gmail.com`
 
-Use `git rm` if you want these files gone from the new branch and from the deployed site. They will still exist in old commits/history.
+CV links:
 
-### Unused Legacy JavaScript
+- `/assets/Juno_Li_CV.pdf`
 
-These are from the old HTML5 UP template and are not loaded by the redesigned site.
+Redirect pages:
 
-- `assets/js/breakpoints.min.js`
-- `assets/js/browser.min.js`
-- `assets/js/jquery.min.js`
-- `assets/js/jquery.scrollex.min.js`
-- `assets/js/jquery.scrolly.min.js`
-- `assets/js/main.js`
-- `assets/js/util.js`
+- `research.html` should redirect to `./#projects`.
+- `observation.html` should redirect to `./#projects`.
 
-Recommended cleanup:
+## 7. Final Local Checks
 
-```bash
-git rm assets/js/breakpoints.min.js assets/js/browser.min.js assets/js/jquery.min.js
-git rm assets/js/jquery.scrollex.min.js assets/js/jquery.scrolly.min.js assets/js/main.js assets/js/util.js
-```
-
-### Unused Legacy Sass Sources
-
-The redesigned site edits `assets/css/main.css` directly and does not compile Sass.
-
-- `assets/sass/main.scss`
-- `assets/sass/libs/_breakpoints.scss`
-- `assets/sass/libs/_functions.scss`
-- `assets/sass/libs/_html-grid.scss`
-- `assets/sass/libs/_mixins.scss`
-- `assets/sass/libs/_vars.scss`
-- `assets/sass/libs/_vendor.scss`
-
-Recommended cleanup:
-
-```bash
-git rm assets/sass/main.scss
-git rm assets/sass/libs/_breakpoints.scss assets/sass/libs/_functions.scss assets/sass/libs/_html-grid.scss
-git rm assets/sass/libs/_mixins.scss assets/sass/libs/_vars.scss assets/sass/libs/_vendor.scss
-```
-
-### Keep Unless Replacing Font Awesome
-
-These are indirectly used by `assets/css/fontawesome-all.min.css` for icon rendering.
-
-- `assets/css/fontawesome-all.min.css`
-- `assets/webfonts/fa-brands-400.*`
-- `assets/webfonts/fa-regular-400.*`
-- `assets/webfonts/fa-solid-900.*`
-
-If you remove Font Awesome icons from the HTML/JS, these can be removed too. Until then, keep them.
-
-### Repo Metadata / Docs To Decide
-
-- `.gitignore`: currently untracked and existed before the redesign work. Review whether it should be added or left untracked.
-- `README.txt`: currently a short pointer to `README.md`. Remove it only if you do not need backward compatibility with the old template README filename.
-- `LICENSE.txt`: keep if any old template or Font Awesome assets remain, or replace with a project-specific license decision.
-
-## Untracking Vs Removing
-
-For this redesign, the cleaner option is usually `git rm`, not `git rm --cached`.
-
-Use `git rm` when:
-
-- You want the file removed from the branch.
-- You want GitHub Pages not to deploy it.
-- You are happy for the old file to exist only in Git history.
-
-Example:
-
-```bash
-git rm images/banner.jpg assets/js/jquery.min.js
-git commit -m "Remove unused legacy site assets"
-```
-
-Use `git rm --cached` only when:
-
-- You want Git to stop tracking a file, but keep your local copy on disk.
-- You will add the path to `.gitignore`.
-- You understand the file will still be removed from the branch for other people after commit.
-
-Example:
-
-```bash
-git rm --cached path/to/local-only-file
-```
-
-Then add the path to `.gitignore` and commit both changes.
-
-## Clean Branch Publication Plan
-
-Goal: the public branch contains only the clean redesigned site. The old website remains only in Git history.
-
-1. Finish replacements and cleanup on `2026-redesign`.
-2. Remove unused legacy files with `git rm` after verifying the lists above.
-3. Confirm the branch only contains files needed by the new static site.
-4. Run checks:
+Run before the next commit:
 
 ```bash
 git status --short
 git diff --check
-```
-
-5. Preview locally:
-
-```bash
 python3 -m http.server 8000
 ```
 
-6. Commit the redesign:
+Then check:
 
-```bash
-git add index.html assets/css/main.css assets/js/site-data.js assets/js/site.js README.md README.txt task.md research.html observation.html
-git commit -m "Rebuild personal site for 2026 job search"
-```
+- Desktop layout.
+- Mobile layout.
+- CV download.
+- Missing image behavior.
+- Project card readability.
+- Beyond Work section height and crop.
 
-7. Push the redesign branch:
+## 8. Make The Redesign Public
 
-```bash
-git push origin 2026-redesign
-```
+Current state:
 
-8. Make it public by merging into the current GitHub Pages publishing branch.
+- `2026-redesign` is pushed to `origin/2026-redesign`.
+- `master` still points to the old public branch.
 
-If the publishing branch is still `master` and it has not diverged:
+When ready, merge the redesign into the GitHub Pages publishing branch.
+
+If publishing from `master`:
 
 ```bash
 git switch master
@@ -332,12 +189,15 @@ git merge --ff-only 2026-redesign
 git push origin master
 ```
 
-If GitHub Pages is configured to use `main`, use `main` instead of `master`.
+If you want the public branch to be `main` instead:
 
-Optional branch-name modernization:
+1. Rename the default branch in GitHub from `master` to `main`.
+2. Update GitHub Pages settings to publish from `main` and root.
+3. Rename locally and push:
 
-- Rename the default branch from `master` to `main` in GitHub settings.
-- Update GitHub Pages settings to publish from `main` and root.
-- Only delete the remote `master` branch after GitHub confirms `main` is the default and Pages is serving correctly.
+```bash
+git branch -m master main
+git push origin main
+```
 
-No separate old-site branch is required if you want the old site to exist only in history.
+Only delete the remote `master` branch after GitHub confirms `main` is default and Pages is serving the redesigned site.
