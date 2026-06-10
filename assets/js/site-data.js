@@ -33,22 +33,23 @@ window.siteData = {
 			tags: ["Databricks", "Open-Meteo", "pvlib", "XGBoost", "MLflow", "PySpark", "MLOps", "time-series validation"],
 			highlights: [
 				"Bronze, Silver, and Gold data layers for forecast-ready features.",
-				"Scheduled daily inference for 7-day plane-of-array Global Tilted Irradiance forecasts.",
+				"Scheduled daily inference for 7-day plane-of-array Global Tilted Irradiance (GTI) forecasts.",
 				"Forecast output published daily to GitHub via the GitHub Content API.",
 				"Operational monitoring and reproducibility are explicit design goals."
 			],
 			links: [
 				{
-					label: "GitHub",
+					label: "Latest forecast available on GitHub",
 					url: "https://github.com/jun01ee/solar-yield-forecasting-pipeline",
 					icon: "fab fa-github"
 				}
 			],
 			demo: {
-				type: "placeholder",
-				variant: "forecast",
-				title: "Live 7-day forecast output will appear here.",
-				detail: "Replace this with the latest forecast PNG or published output path when available."
+				type: "image",
+				image: "images/7_Day_GTI_Power_Yield_Profile.png",
+				alt: "Seven-day solar power yield forecast output from the solar forecasting pipeline.",
+				caption: "Example 7-day solar power yield forecast published by the scheduled Databricks pipeline.",
+				fit: "contain"
 			}
 		},
 		{
@@ -62,12 +63,19 @@ window.siteData = {
 				"Uses AI-assisted and agentic coding workflows for refactoring, debugging, documentation, and design iteration.",
 				"Software in preparation for community release; private source is not linked."
 			],
-			links: [],
+			links: [
+				{
+					label: "View updated architecture in Miro",
+					url: "https://miro.com/app/board/uXjVHJ-Kk4k=/?share_link_id=306679700894",
+					icon: "fas fa-external-link-alt"
+				}
+			],
 			demo: {
-				type: "placeholder",
-				variant: "architecture",
-				title: "Program architecture flowchart coming soon.",
-				detail: "Preferred replacement: exported Miro SVG or PNG. A public Miro link can be added as a secondary link."
+				type: "image",
+				image: "images/galaxy-software-architecture.svg",
+				alt: "Architecture flowchart for spatially resolved galaxy spectra analysis software",
+				caption: "Current architecture flowchart for the software design; interactive view available through Miro.",
+				fit: "contain"
 			}
 		},
 		{
@@ -139,19 +147,28 @@ window.siteData = {
 		{
 			title: "Large-Scale Astronomical Data Pipeline",
 			status: "Private research pipeline",
-			description: "R pipeline for scanning, processing, and indexing roughly 20TB of archival Hubble Space Telescope imaging data, producing structured metadata and analysis-ready overlap information.",
-			tags: ["R", "large-scale data", "metadata engineering", "spatial data", "validation", "reproducible workflows", "HST archive"],
+			description: "R-based archival imaging workflow for metadata construction, spatial overlap detection, multi-visit grouping, and joint HST-JWST image processing.",
+			tags: ["R", "large-scale data", "metadata engineering", "spatial data", "validation", "reproducible workflows", "HST archive", "JWST"],
 			highlights: [
-				"Generated structured metadata while preserving spatial and coordinate information.",
-				"Identified overlapping observations for deeper analysis-ready datasets.",
-				"Summary available on request; private research source is not linked."
+				"Built a master metadata catalogue for 249,861 calibrated HST images spanning roughly 26 TB of archival data.",
+				"Developed an R-based spatial algorithm using image footprints and polygon overlap detection to group repeated observations.",
+				"Produced 38,027 single-visit and 7,893 multi-visit mosaics for deeper, analysis-ready datasets.",
+				"Extended the workflow to support joint HST-JWST matching, alignment, photometry, and quality control.",
+				"Technical details are documented in Sections 2.1.1 and 2.2 of my PhD thesis."
 			],
-			links: [],
+			links: [
+				{
+					label: "Read full thesis — see pp. 18–22",
+					url: "https://research-repository.uwa.edu.au/en/publications/sharpening-our-view-of-massive-galaxies-in-the-early-universe/",
+					icon: "fas fa-book-open"
+				}
+			],
 			demo: {
 				type: "image",
-				image: "images/mosaic.JPG",
-				alt: "Astronomical image mosaic used as visual evidence for large-scale imaging workflows",
-				caption: "Schematic visual placeholder for archival image processing and overlap detection."
+				image: "images/jwst-workflow-v5.png",
+				alt: "Joint HST-JWST data workflow diagram",
+				caption: "Joint HST-JWST data workflow showing archival data matching, image processing, source detection, multiband photometry, quality control, and downstream analysis.",
+				fit: "contain"
 			}
 		}
 	],
@@ -211,13 +228,13 @@ window.siteData = {
 				title: "Travel",
 				text: "Research has also taken me across Europe for conferences and collaborations, alongside personal travel in Asia, shaping the way I work across cultures and disciplines.",
 				image: "images/tibet.jpg",
-				alt: "Travel photography from a mountain landscape"
+				alt: "Travel photography of Himalayan mountain landscape in Tibet, captured by the author during a personal trip to the region."
 			},
 			{
 				title: "Photography",
 				text: "I also enjoy photography, from travel images to telescope-based astronomical imaging, including stacking my own observations of deep-sky objects.",
 				image: "images/m8.jpg",
-				alt: "Telescope-based astronomical image"
+				alt: "Telescope-based astronomical image of M8, the Lagoon Nebula, captured and processed by the author."
 			}
 		]
 	}

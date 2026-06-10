@@ -1,13 +1,15 @@
 # Remaining Website Tasks
 
-Last checked: branch `2026-redesign` at `5ec090e`, clean and tracking `origin/2026-redesign`.
+Last checked: branch `2026-redesign` after adding the Miro architecture SVG and link.
 
-The legacy asset cleanup is done on this branch. The current repo only contains the rebuilt static site, Font Awesome assets, redirect pages, and five active images:
+The legacy asset cleanup is done on this branch. The current repo only contains the rebuilt static site, Font Awesome assets, redirect pages, and seven active image assets:
 
+- `images/7_Day_GTI_Power_Yield_Profile.png`
 - `images/avatar.jpg`
+- `images/galaxy-software-architecture.svg`
 - `images/icon.jpg`
+- `images/jwst-workflow-v5.png`
 - `images/m8.jpg`
-- `images/mosaic.JPG`
 - `images/tibet.jpg`
 
 ## 1. Add Or Update The CV
@@ -27,9 +29,11 @@ test -f assets/Juno_Li_CV.pdf
 
 | Current path | Current dimensions | Current use | Minimum target | Ideal target | Remaining task |
 | --- | --- | --- | --- | --- | --- |
-| `images/avatar.jpg` | `279 x 279` | Hero portrait, preload image, social preview fallback | `600 x 600` | `1200 x 1200` | Replace with a higher-resolution recruiter-facing headshot, or accept the current low-resolution image. |
+| `images/7_Day_GTI_Power_Yield_Profile.png` | `2661 x 1655` | Solar Yield Forecasting MLOps Pipeline forecast output | `1000 x 625` | `1600 x 1000` | Meets size target. Verify it is the latest published forecast output before launch. |
+| `images/avatar.jpg` | `1920 x 1919` | Hero portrait, preload image, social preview fallback | `600 x 600` | `1200 x 1200` | Meets size target. Verify crop and file size in production. |
+| `images/galaxy-software-architecture.svg` | SVG | Spatially Resolved Galaxy Spectra Analysis Software architecture visual | SVG | SVG | Verify the exported diagram is readable in the project card and that the Miro link opens in view-only mode. |
 | `images/icon.jpg` | `538 x 538` | Favicon | `256 x 256` | `512 x 512` | Meets size target. Only replace if you want a cleaner favicon. |
-| `images/mosaic.JPG` | `641 x 569` | Large-Scale Astronomical Data Pipeline visual | `1000 x 625` for screenshots, or `1200 x 750` for diagrams | `1600 x 1000` or SVG/PNG schematic | Replace with a clearer pipeline schematic, HST metadata/overlap visual, or higher-resolution project figure. |
+| `images/jwst-workflow-v5.png` | `993 x 1404` | Large-Scale Astronomical Data Pipeline workflow figure | `800 x 600` equivalent | Source-quality export | Verify readability in the project card, especially on mobile. |
 | `images/tibet.jpg` | `201 x 360` | Beyond Work travel thumbnail | `800 x 600` | `1200 x 900` | Replace with a higher-resolution `4:3` travel/collaboration image. Current image is below target and portrait-oriented. |
 | `images/m8.jpg` | `1418 x 1042` | Beyond Work telescope imaging thumbnail | `800 x 600` | `1200 x 900` | Meets minimum. Verify crop and visual quality in the card; replace only if you prefer a stronger stacked image. |
 
@@ -45,42 +49,14 @@ General image rules:
 ## 3. Optional Dedicated Social Preview Image
 
 - Current social preview: `https://jun01ee.github.io/images/avatar.jpg`
-- Current issue: `images/avatar.jpg` is square and low resolution.
+- Current issue: `images/avatar.jpg` is square; a dedicated wide preview would look better in link cards.
 - Recommended asset: `images/social-preview.jpg`
 - Target: `1200 x 630`, aspect ratio `1.91:1`.
 - Task: create a dedicated social card image and update `og:image` and `twitter:image` in `index.html`.
 
 ## 4. Replace Project Placeholders
 
-All project placeholders are in `assets/js/site-data.js`.
-
-### Solar Yield Forecasting MLOps Pipeline
-
-- Current placeholder title: `Live 7-day forecast output will appear here.`
-- Current placeholder description: `Replace this with the latest forecast PNG or published output path when available.`
-- Needed asset: latest forecast PNG/output.
-- Target: PNG, `16:10` or `4:3`, minimum `1000 x 625`, ideal `1600 x 1000`.
-- Task: change the demo from `type: "placeholder"` to `type: "image"`.
-
-Example:
-
-```js
-demo: {
-  type: "image",
-  image: "images/solar-forecast.png",
-  alt: "Seven-day solar irradiance forecast output",
-  caption: "Latest daily forecast published by the scheduled pipeline."
-}
-```
-
-### Spatially Resolved Galaxy Spectra Analysis Software
-
-- Current placeholder title: `Program architecture flowchart coming soon.`
-- Needed asset: Miro architecture export.
-- Preferred format: SVG.
-- PNG fallback: `16:9` or `16:10`, minimum `1200 x 750`, ideal `1920 x 1080` or `1600 x 1000`.
-- Task: add exported architecture visual and update the project demo.
-- Optional: add a public Miro link as a secondary link only if it works without permissions.
+All remaining project placeholders are in `assets/js/site-data.js`.
 
 ### Visualisation / Dashboarding Portfolio
 
@@ -103,13 +79,34 @@ demo: {
 - Target screenshot: PNG, `16:10` or `4:3`, minimum `1000 x 625`.
 - Task: replace placeholder AI/log graphic.
 
-### Large-Scale Astronomical Data Pipeline
+## 5. Public Copy Cleanup
 
-- Current image: `images/mosaic.JPG`
-- Current caption: `Schematic visual placeholder for archival image processing and overlap detection.`
-- Task: replace with a clearer project visual or update caption if keeping the current image.
+These strings are visible on the site or can appear in normal fallback states, but read like internal notes, implementation labels, or unfinished placeholders. Replace them before public launch unless you intentionally want to signal that the item is still in progress.
 
-## 5. Finish Beyond Work Visuals
+| Current text | Where | Why it needs review | Suggested direction |
+| --- | --- | --- | --- |
+| `Headshot image placeholder` | `index.html` image fallback | Placeholder wording can appear if the portrait fails to load. | Use a neutral fallback such as `Portrait unavailable`. |
+| `Proof-of-work focus` | `index.html` hero side panel | Slightly jargon-heavy and internal-sounding. | Consider `Portfolio focus`, `Current focus`, or `Project focus`. |
+| `Evidence, demos, and work in progress` | `index.html` projects heading | `work in progress` can make the main section feel unfinished. | Consider `Featured Technical Work`, `Selected Projects`, or `Project Evidence`. |
+| `CV placeholder` | `index.html` about section link | Explicit placeholder text. | Change to `View CV`, `Download CV`, or remove until the PDF exists. |
+| `Compact skill groups for recruiter scanning` | `index.html` capabilities heading | Sounds like design/development rationale, not public copy. | Consider `Core Technical Strengths`, `How I Work Across Data Roles`, or `Technical Capabilities`. |
+| `Experience preview` | `index.html` eyebrow | `preview` can sound temporary. | Consider `Experience`, `Background`, or `Selected experience`. |
+| `Availability signal` | `index.html` contact details | `signal` sounds like internal recruiter-targeting language. | Consider `Open to`, `Role interests`, or `Current focus`. |
+| `Placeholder demo area` | `assets/js/site.js` generated demo caption | Direct placeholder shown on multiple project cards. | Use project-specific captions, or hide this caption for placeholder cards. |
+| `Visualisation / Dashboarding Portfolio` | `assets/js/site-data.js` project title | Explicit portfolio placeholder. | Replace once a specific BI/dashboard project exists. |
+| `Coming soon` | `assets/js/site-data.js` dashboard status | Public placeholder. | Replace with a concrete status when available, or keep only if intentionally transparent. |
+| `Candidate themes: student outcomes, health insurance performance, or operational KPI monitoring.` | `assets/js/site-data.js` dashboard highlight | Reads like planning notes rather than project evidence. | Replace with the chosen dashboard theme. |
+| `Planned sections: problem statement, dataset, KPIs, screenshots, data model, insights brief, recommendations, and repo link.` | `assets/js/site-data.js` dashboard highlight | Reads like an internal checklist. | Replace with completed deliverables or remove until available. |
+| `Dashboard screenshots coming soon.` | `assets/js/site-data.js` dashboard demo | Direct placeholder. | Replace with dashboard screenshot and caption. |
+| `Choose the business theme and add screenshots, KPI notes, and the future Power BI/Tableau/GitHub link.` | `assets/js/site-data.js` dashboard demo | Direct internal instruction. | Replace with a public caption or remove once screenshots exist. |
+| `Architecture diagram placeholder is ready for a future project visual.` | `assets/js/site-data.js` Data Engineering highlight | Direct placeholder. | Replace with a real capstone architecture highlight. |
+| `Architecture diagram placeholder.` | `assets/js/site-data.js` Data Engineering demo | Direct placeholder. | Replace with a diagram or README screenshot. |
+| `Add a pipeline diagram or README screenshot when ready.` | `assets/js/site-data.js` Data Engineering demo | Internal instruction. | Replace with a caption for the real diagram. |
+| `Placeholder ready for best-result summary, log screenshot, or experiment notes.` | `assets/js/site-data.js` OpenEvolve highlight | Direct placeholder. | Replace with a concrete result, scoring trace, or experiment insight. |
+| `Experiment summary coming soon.` | `assets/js/site-data.js` OpenEvolve demo | Direct placeholder. | Replace with result/log screenshot and caption. |
+| `Add best result, scoring trace, or log screenshot.` | `assets/js/site-data.js` OpenEvolve demo | Internal instruction. | Replace with a public caption. |
+
+## 6. Finish Beyond Work Visuals
 
 Beyond Work content is in `assets/js/site-data.js`.
 
@@ -123,7 +120,19 @@ Target for Beyond Work thumbnails:
 - Minimum: `800 x 600`
 - Ideal: `1200 x 900`
 
-## 6. Manually Verify Links Before Public Launch
+## 7. Remove Newly Unused Asset
+
+The HST project now uses `images/jwst-workflow-v5.png`, so this image is no longer referenced by the site:
+
+- `images/mosaic.JPG`
+
+If you want the branch to remain minimal, remove it from the branch:
+
+```bash
+git rm images/mosaic.JPG
+```
+
+## 8. Manually Verify Links Before Public Launch
 
 Internal links:
 
@@ -142,6 +151,8 @@ External links:
 - `https://github.com/jun01ee/solar-yield-forecasting-pipeline`
 - `https://gitlab.com/jun01ee/data-engineering-zoomcamp`
 - `https://github.com/jun01ee/OpenEvolve`
+- `https://miro.com/app/board/uXjVHJ-Kk4k=/?share_link_id=306679700894`
+- `https://research-repository.uwa.edu.au/en/publications/sharpening-our-view-of-massive-galaxies-in-the-early-universe/`
 - `mailto:juno.li.research@gmail.com`
 
 CV links:
@@ -153,7 +164,7 @@ Redirect pages:
 - `research.html` should redirect to `./#projects`.
 - `observation.html` should redirect to `./#projects`.
 
-## 7. Final Local Checks
+## 9. Final Local Checks
 
 Run before the next commit:
 
@@ -172,7 +183,7 @@ Then check:
 - Project card readability.
 - Beyond Work section height and crop.
 
-## 8. Make The Redesign Public
+## 10. Make The Redesign Public
 
 Current state:
 

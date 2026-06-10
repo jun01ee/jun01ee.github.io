@@ -29,7 +29,7 @@ Site structure, SEO metadata, hero copy, about copy, and contact links live in `
 - Latest CV: add the PDF at `assets/Juno_Li_CV.pdf`.
 - Headshot: replace `images/avatar.jpg`, or update the hero image path in `index.html`.
 - Solar forecast output: update the Solar project demo in `assets/js/site-data.js` from `type: "placeholder"` to `type: "image"` and point `image` to the PNG.
-- Miro architecture: export the Miro board as SVG or PNG, place it in `images/`, and update the Galaxy Spectra project demo.
+- Miro architecture: replace `images/galaxy-software-architecture.svg` or update the Miro link in `assets/js/site-data.js` when the design changes.
 - Dashboarding portfolio: choose a theme, add screenshots/diagrams to `images/`, then update the placeholder card.
 - Data Engineering capstone: add an architecture diagram or README screenshot and update the project demo.
 - OpenEvolve experiments: add a log screenshot, best-result image, or concise result summary.

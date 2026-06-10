@@ -59,9 +59,13 @@
 		}
 
 		if (demo.type === "image") {
-			return '<figure class="project-demo">' +
+			var fitClass = demo.fit === "contain" ? " project-demo--contain" : "";
+			var label = "Open larger view of " + title;
+			return '<figure class="project-demo' + fitClass + '">' +
 				'<div class="media-frame" data-fallback="' + escapeHtml(title) + ' visual placeholder">' +
+				'<button class="image-zoom-button" type="button" data-full-src="' + escapeHtml(demo.image) + '" data-alt="' + escapeHtml(demo.alt || title) + '" data-caption="' + escapeHtml(demo.caption || "") + '" aria-label="' + escapeHtml(label) + '" title="' + escapeHtml(label) + '">' +
 				'<img src="' + escapeHtml(demo.image) + '" alt="' + escapeHtml(demo.alt || title) + '" loading="lazy" />' +
+				'</button>' +
 				'<span class="image-fallback">' + escapeHtml(title) + ' visual placeholder</span>' +
 				'</div>' +
 				'<figcaption>' + escapeHtml(demo.caption || "") + '</figcaption>' +
@@ -191,11 +195,94 @@
 		document.querySelectorAll(".media-frame img").forEach(function (image) {
 			image.addEventListener("error", function () {
 				var frame = image.closest(".media-frame");
+				var trigger = image.closest(".image-zoom-button");
 				if (frame) {
 					frame.classList.add("is-missing");
 				}
-				image.remove();
+				if (trigger) {
+					trigger.remove();
+				} else {
+					image.remove();
+				}
 			});
+		});
+	}
+
+	var activeZoomTrigger = null;
+
+	function ensureImageViewer() {
+		var existing = document.querySelector(".image-viewer");
+		if (existing) {
+			return existing;
+		}
+
+		var viewer = document.createElement("div");
+		viewer.className = "image-viewer";
+		viewer.hidden = true;
+		viewer.setAttribute("role", "dialog");
+		viewer.setAttribute("aria-modal", "true");
+		viewer.setAttribute("aria-label", "Expanded project visual");
+		viewer.innerHTML = '<div class="image-viewer__backdrop" data-image-viewer-close></div>' +
+			'<div class="image-viewer__panel">' +
+			'<button class="image-viewer__close" type="button" data-image-viewer-close aria-label="Close larger view" title="Close larger view">' +
+			'<span class="icon fas fa-times" aria-hidden="true"></span>' +
+			'</button>' +
+			'<img class="image-viewer__image" alt="" />' +
+			'<p class="image-viewer__caption"></p>' +
+			'</div>';
+		document.body.appendChild(viewer);
+		viewer.addEventListener("click", function (event) {
+			var closeTarget = event.target.closest("[data-image-viewer-close]");
+			if (closeTarget) {
+				closeImageViewer();
+			}
+		});
+		return viewer;
+	}
+
+	function openImageViewer(trigger) {
+		var viewer = ensureImageViewer();
+		var image = viewer.querySelector(".image-viewer__image");
+		var caption = viewer.querySelector(".image-viewer__caption");
+		var closeButton = viewer.querySelector(".image-viewer__close");
+
+		activeZoomTrigger = trigger;
+		image.src = trigger.getAttribute("data-full-src") || "";
+		image.alt = trigger.getAttribute("data-alt") || "";
+		caption.textContent = trigger.getAttribute("data-caption") || "";
+		viewer.hidden = false;
+		document.body.classList.add("is-viewer-open");
+		closeButton.focus();
+	}
+
+	function closeImageViewer() {
+		var viewer = document.querySelector(".image-viewer");
+		if (!viewer || viewer.hidden) {
+			return;
+		}
+
+		viewer.hidden = true;
+		viewer.querySelector(".image-viewer__image").removeAttribute("src");
+		document.body.classList.remove("is-viewer-open");
+
+		if (activeZoomTrigger) {
+			activeZoomTrigger.focus();
+			activeZoomTrigger = null;
+		}
+	}
+
+	function bindImageViewer() {
+		document.addEventListener("click", function (event) {
+			var trigger = event.target.closest(".image-zoom-button");
+			if (trigger) {
+				openImageViewer(trigger);
+			}
+		});
+
+		document.addEventListener("keydown", function (event) {
+			if (event.key === "Escape") {
+				closeImageViewer();
+			}
 		});
 	}
 
@@ -239,6 +326,7 @@
 		renderBeyondWork();
 		renderYear();
 		bindImageFallbacks();
+		bindImageViewer();
 		bindActiveNavigation();
 	}
 
