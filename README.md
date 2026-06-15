@@ -12,59 +12,53 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
-## Update content
+## Where content lives
 
-Most recruiter-facing content is in `assets/js/site-data.js`:
+- `index.html`: page structure, SEO metadata, hero copy, about copy, contact links, and CV links.
+- `assets/js/site-data.js`: snapshot cards, project cards, tags, highlights, links, capabilities, experience, and Beyond Work content.
+- `assets/js/site.js`: rendering logic for cards, image fallbacks, and the image viewer.
+- `assets/css/main.css`: site styling.
+- `images/`: tracked portfolio images and diagrams.
 
-- `snapshot`: short recruiter snapshot cards.
-- `projects`: featured project cards, tags, highlights, links, and demo placeholders.
-- `capabilities`: compact skills groups.
-- `experience`: short timeline entries.
-- `beyondWork`: compact secondary personal context and optional thumbnails.
+## Common updates
 
-Site structure, SEO metadata, hero copy, about copy, and contact links live in `index.html`.
-
-## Replace placeholders
-
-- Latest CV: add the PDF at `assets/Juno_Li_CV.pdf`.
-- Headshot: replace `images/avatar.jpg`, or update the hero image path in `index.html`.
-- Solar forecast output: update the Solar project demo in `assets/js/site-data.js` from `type: "placeholder"` to `type: "image"` and point `image` to the PNG.
-- Miro architecture: replace `images/galaxy-software-architecture.svg` or update the Miro link in `assets/js/site-data.js` when the design changes.
-- Dashboarding portfolio: choose a theme, add screenshots/diagrams to `images/`, then update the placeholder card.
-- Data Engineering capstone: update the workflow diagram URL in `assets/js/site-data.js` if the GitLab project visual changes.
-- OpenEvolve experiments: add a log screenshot, best-result image, or concise result summary.
-- Beyond Work: replace the running placeholder or update travel/telescope thumbnails in `assets/js/site-data.js`.
+- CV: add the latest PDF at `assets/Juno_Li_CV.pdf`, or change/remove the CV links in `index.html`.
+- Portrait: replace `images/avatar.jpg`, or update the hero image and social preview paths in `index.html`.
+- Social preview: add a wide `images/social-preview.jpg` and update `og:image` and `twitter:image` in `index.html`.
+- Project content: edit the relevant object in `assets/js/site-data.js`.
+- Project image: add the image under `images/`, then update the project `demo` object.
+- Beyond Work content: edit `beyondWork` in `assets/js/site-data.js`.
 
 Example image demo:
 
 ```js
 demo: {
-  type: "image",
-  image: "images/solar-forecast.png",
-  alt: "Seven-day solar irradiance forecast output",
-  caption: "Latest daily forecast published by the scheduled pipeline."
+	type: "image",
+	image: "images/example-project.png",
+	alt: "Short description of the project visual",
+	caption: "Public-facing caption for the project visual.",
+	fit: "contain"
 }
 ```
 
 ## Deployment
 
-This site has no build step. Commit changes to the branch configured for GitHub Pages, usually `master` or `main`, and GitHub Pages will serve the root `index.html`.
+This site has no build step. Commit changes to the branch configured for GitHub Pages and GitHub Pages will serve the root `index.html`.
 
-For this redesign branch:
+Before publishing:
 
 ```bash
-git push origin 2026-redesign
+git status --short
+git diff --check
+python3 -m http.server 8000
 ```
 
-After review, merge into the GitHub Pages publishing branch.
+Then verify the local site in a browser, including mobile layout, project cards, image fallbacks, and CV download behavior.
 
-## Remaining materials to add
+## Still missing
 
-- Latest CV PDF.
-- Preferred headshot/avatar.
-- Project screenshots and architecture diagrams.
-- Solar forecast PNG or published output path.
-- Dashboard project theme and screenshots.
-- Optional Canva CV link.
-- Optional publications section.
-- Optional work-rights/visa note.
+- `assets/Juno_Li_CV.pdf` is not present yet, but `index.html` links to it.
+- Hidden Dashboarding and OpenEvolve project entries still contain placeholder/planning copy in `assets/js/site-data.js`.
+- Some visible copy still reads like internal launch wording, including labels such as `CV placeholder`, `Proof-of-work focus`, and `Evidence, demos, and work in progress`.
+- A dedicated wide social preview image is optional but recommended.
+- `images/tibet.jpg` appears unused and can be removed if it is no longer needed.
