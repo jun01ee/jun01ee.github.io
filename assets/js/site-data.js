@@ -80,6 +80,7 @@ window.siteData = {
 		},
 		{
 			title: "Visualisation / Dashboarding Portfolio",
+			hidden: true,
 			status: "Coming soon",
 			description: "A planned BI project for demonstrating dashboard design, KPI selection, data storytelling, business analysis, and stakeholder-ready reporting.",
 			tags: ["Power BI", "Tableau", "dashboard design", "KPIs", "data storytelling", "star schema", "business analysis"],
@@ -99,12 +100,12 @@ window.siteData = {
 		{
 			title: "Data Engineering Zoomcamp Capstone",
 			status: "GitLab repo",
-			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Terraform-managed infrastructure.",
-			tags: ["data engineering", "ETL", "orchestration", "validation", "CI/CD", "Terraform", "structured data modelling"],
+			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Terraform-managed infrastructure. Interactive dashboards were created using Looker Studio (a free, web-based visualization tool in the Google ecosystem, similar to Tableau/Power BI).",
+			tags: ["data engineering", "ETL", "orchestration", "validation", "CI/CD", "Terraform", "structured data modelling", "Looker Studio"],
 			highlights: [
-				"Reproducible data engineering workflow with Terraform-managed cloud infrastructure.",
-				"Structured modelling and validation steps for analysis-ready datasets.",
-				"Workflow diagram documents the capstone data ingestion, transformation, modelling, validation, and orchestration steps."
+				"Reproducible data engineering workflow with Terraform-managed infrastructure.",
+				"Structured modelling and validation for analysis-ready datasets.",
+				"Workflow diagrams and interactive dashboards (Looker Studio) for stakeholder reporting."
 			],
 			links: [
 				{
@@ -123,6 +124,7 @@ window.siteData = {
 		},
 		{
 			title: "OpenEvolve AI Experiments",
+			hidden: true,
 			status: "Public repo",
 			description: "Experiments with LLM-driven optimisation workflows, automated code improvement, program synthesis, structured prompts, scoring functions, and iterative refinement.",
 			tags: ["GenAI", "agentic AI", "LLM workflows", "automated evaluation", "program synthesis", "reproducible experimentation"],
@@ -223,7 +225,8 @@ window.siteData = {
 			{
 				title: "Running",
 				text: "I started running recently and completed my first 12 km race in HBF Run for a Reason, which has become a practical way for me to build consistency and resilience outside work.",
-				placeholder: "12 km"
+				image: "images/12km.jpg",
+				alt: "Photo of finiahing medal for the 12 km distance in the HBF Run for a Reason event against neutral background."
 			},
 			{
 				title: "Travel",

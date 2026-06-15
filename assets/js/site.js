@@ -103,7 +103,9 @@
 			return;
 		}
 
-		target.innerHTML = (data.projects || []).map(function (project) {
+		target.innerHTML = (data.projects || []).filter(function (project) {
+			return !project.hidden;
+		}).map(function (project) {
 			return '<article class="project-card">' +
 				'<div class="project-card__body">' +
 				'<div class="project-card__header">' +
