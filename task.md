@@ -29,11 +29,7 @@ test -f assets/Juno_Li_CV.pdf
 
 | Current path | Current dimensions | Current use | Minimum target | Ideal target | Remaining task |
 | --- | --- | --- | --- | --- | --- |
-| `images/7_Day_GTI_Power_Yield_Profile.png` | `2661 x 1655` | Solar Yield Forecasting MLOps Pipeline forecast output | `1000 x 625` | `1600 x 1000` | Meets size target. Verify it is the latest published forecast output before launch. |
-| `images/avatar.jpg` | `1920 x 1919` | Hero portrait, preload image, social preview fallback | `600 x 600` | `1200 x 1200` | Meets size target. Verify crop and file size in production. |
-| `images/galaxy-software-architecture.svg` | SVG | Spatially Resolved Galaxy Spectra Analysis Software architecture visual | SVG | SVG | Verify the exported diagram is readable in the project card and that the Miro link opens in view-only mode. |
 | `images/icon.jpg` | `538 x 538` | Favicon | `256 x 256` | `512 x 512` | Meets size target. Only replace if you want a cleaner favicon. |
-| `images/jwst-workflow-v5.png` | `993 x 1404` | Large-Scale Astronomical Data Pipeline workflow figure | `800 x 600` equivalent | Source-quality export | Verify readability in the project card, especially on mobile. |
 | `images/tibet.jpg` | `201 x 360` | Beyond Work travel thumbnail | `800 x 600` | `1200 x 900` | Replace with a higher-resolution `4:3` travel/collaboration image. Current image is below target and portrait-oriented. |
 | `images/m8.jpg` | `1418 x 1042` | Beyond Work telescope imaging thumbnail | `800 x 600` | `1200 x 900` | Meets minimum. Verify crop and visual quality in the card; replace only if you prefer a stronger stacked image. |
 
@@ -65,13 +61,6 @@ All remaining project placeholders are in `assets/js/site-data.js`.
 - Target image: PNG, `16:9` or `16:10`, minimum `1280 x 720`, ideal `1920 x 1080`.
 - Task: replace placeholder demo and update the project description when the BI project exists.
 
-### Data Engineering Zoomcamp Capstone
-
-- Current placeholder title: `Architecture diagram placeholder.`
-- Needed asset: architecture diagram or README screenshot.
-- Target: SVG preferred, or PNG `16:9`/`16:10`, minimum `1200 x 750`.
-- Task: replace placeholder pipeline graphic.
-
 ### OpenEvolve AI Experiments
 
 - Current placeholder title: `Experiment summary coming soon.`
@@ -99,9 +88,6 @@ These strings are visible on the site or can appear in normal fallback states, b
 | `Planned sections: problem statement, dataset, KPIs, screenshots, data model, insights brief, recommendations, and repo link.` | `assets/js/site-data.js` dashboard highlight | Reads like an internal checklist. | Replace with completed deliverables or remove until available. |
 | `Dashboard screenshots coming soon.` | `assets/js/site-data.js` dashboard demo | Direct placeholder. | Replace with dashboard screenshot and caption. |
 | `Choose the business theme and add screenshots, KPI notes, and the future Power BI/Tableau/GitHub link.` | `assets/js/site-data.js` dashboard demo | Direct internal instruction. | Replace with a public caption or remove once screenshots exist. |
-| `Architecture diagram placeholder is ready for a future project visual.` | `assets/js/site-data.js` Data Engineering highlight | Direct placeholder. | Replace with a real capstone architecture highlight. |
-| `Architecture diagram placeholder.` | `assets/js/site-data.js` Data Engineering demo | Direct placeholder. | Replace with a diagram or README screenshot. |
-| `Add a pipeline diagram or README screenshot when ready.` | `assets/js/site-data.js` Data Engineering demo | Internal instruction. | Replace with a caption for the real diagram. |
 | `Placeholder ready for best-result summary, log screenshot, or experiment notes.` | `assets/js/site-data.js` OpenEvolve highlight | Direct placeholder. | Replace with a concrete result, scoring trace, or experiment insight. |
 | `Experiment summary coming soon.` | `assets/js/site-data.js` OpenEvolve demo | Direct placeholder. | Replace with result/log screenshot and caption. |
 | `Add best result, scoring trace, or log screenshot.` | `assets/js/site-data.js` OpenEvolve demo | Internal instruction. | Replace with a public caption. |
@@ -149,7 +135,8 @@ External links:
 - `https://www.linkedin.com/in/jun01ee/`
 - `https://scholar.google.com/citations?user=Q0zwr3cAAAAJ&hl=en&authuser=1`
 - `https://github.com/jun01ee/solar-yield-forecasting-pipeline`
-- `https://gitlab.com/jun01ee/data-engineering-zoomcamp`
+- `https://gitlab.com/jun01ee/data-engineering-zoomcamp/-/tree/main/07-project?ref_type=heads`
+- `https://gitlab.com/jun01ee/data-engineering-zoomcamp/-/raw/main/07-project/project_workflow.png`
 - `https://github.com/jun01ee/OpenEvolve`
 - `https://miro.com/app/board/uXjVHJ-Kk4k=/?share_link_id=306679700894`
 - `https://research-repository.uwa.edu.au/en/publications/sharpening-our-view-of-massive-galaxies-in-the-early-universe/`

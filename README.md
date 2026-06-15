@@ -31,7 +31,7 @@ Site structure, SEO metadata, hero copy, about copy, and contact links live in `
 - Solar forecast output: update the Solar project demo in `assets/js/site-data.js` from `type: "placeholder"` to `type: "image"` and point `image` to the PNG.
 - Miro architecture: replace `images/galaxy-software-architecture.svg` or update the Miro link in `assets/js/site-data.js` when the design changes.
 - Dashboarding portfolio: choose a theme, add screenshots/diagrams to `images/`, then update the placeholder card.
-- Data Engineering capstone: add an architecture diagram or README screenshot and update the project demo.
+- Data Engineering capstone: update the workflow diagram URL in `assets/js/site-data.js` if the GitLab project visual changes.
 - OpenEvolve experiments: add a log screenshot, best-result image, or concise result summary.
 - Beyond Work: replace the running placeholder or update travel/telescope thumbnails in `assets/js/site-data.js`.
 

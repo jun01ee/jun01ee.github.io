@@ -99,25 +99,26 @@ window.siteData = {
 		{
 			title: "Data Engineering Zoomcamp Capstone",
 			status: "GitLab repo",
-			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Docker-based reproducibility.",
-			tags: ["data engineering", "ETL", "orchestration", "validation", "CI/CD", "Docker", "structured data modelling"],
+			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Terraform-managed infrastructure.",
+			tags: ["data engineering", "ETL", "orchestration", "validation", "CI/CD", "Terraform", "structured data modelling"],
 			highlights: [
-				"Reproducible data engineering workflow with Docker-based services.",
+				"Reproducible data engineering workflow with Terraform-managed cloud infrastructure.",
 				"Structured modelling and validation steps for analysis-ready datasets.",
-				"Architecture diagram placeholder is ready for a future project visual."
+				"Workflow diagram documents the capstone data ingestion, transformation, modelling, validation, and orchestration steps."
 			],
 			links: [
 				{
 					label: "GitLab",
-					url: "https://gitlab.com/jun01ee/data-engineering-zoomcamp",
+					url: "https://gitlab.com/jun01ee/data-engineering-zoomcamp/-/tree/main/07-project?ref_type=heads",
 					icon: "fab fa-gitlab"
 				}
 			],
 			demo: {
-				type: "placeholder",
-				variant: "pipeline",
-				title: "Architecture diagram placeholder.",
-				detail: "Add a pipeline diagram or README screenshot when ready."
+				type: "image",
+				image: "https://gitlab.com/jun01ee/data-engineering-zoomcamp/-/raw/main/07-project/project_workflow.png",
+				alt: "Data Engineering Zoomcamp capstone project workflow diagram",
+				caption: "Capstone workflow diagram showing the data engineering pipeline structure and orchestration flow.",
+				fit: "contain"
 			}
 		},
 		{
