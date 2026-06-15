@@ -226,13 +226,13 @@ window.siteData = {
 				title: "Running",
 				text: "I started running recently and completed my first 12 km race in HBF Run for a Reason, which has become a practical way for me to build consistency and resilience outside work.",
 				image: "images/12km.jpg",
-				alt: "Photo of finiahing medal for the 12 km distance in the HBF Run for a Reason event against neutral background."
+				alt: "Photo of finishing medal for the 12 km distance in the HBF Run for a Reason event against neutral background."
 			},
 			{
 				title: "Travel",
-				text: "Research has also taken me across Europe for conferences and collaborations, alongside personal travel in Asia, shaping the way I work across cultures and disciplines.",
-				image: "images/tibet.jpg",
-				alt: "Travel photography of Himalayan mountain landscape in Tibet, captured by the author during a personal trip to the region."
+				text: "Research has taken me across Europe for conferences and collaborations. This photo shows me at a conference dinner with traditional Italian customed performers at the 15th-century Villa Contarini.",
+				image: "images/italy.jpg",
+				alt: "Author attending a conference dinner at 15th-century Villa Contarini; traditional Italian customed performers entertain the dinner."
 			},
 			{
 				title: "Photography",
