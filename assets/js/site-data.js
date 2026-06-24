@@ -28,7 +28,7 @@ window.siteData = {
 	projects: [
 		{
 			title: "Solar Yield Forecasting MLOps Pipeline",
-			status: "Public repo",
+			status: "Public GitHub repo",
 			description: "Databricks Free Edition pipeline for solar energy forecasting, designed as operational evidence for ETL, validation, ML forecasting, scheduled inference, and reproducible MLOps.",
 			tags: ["Databricks", "Open-Meteo", "pvlib", "XGBoost", "MLflow", "PySpark", "MLOps", "time-series validation"],
 			highlights: [
@@ -99,7 +99,7 @@ window.siteData = {
 		},
 		{
 			title: "Data Engineering Zoomcamp Capstone",
-			status: "GitLab repo",
+			status: "Public GitLab repo",
 			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Terraform-managed infrastructure. Interactive dashboards were created using Looker Studio (a free, web-based visualization tool in the Google ecosystem, similar to Tableau/Power BI).",
 			tags: ["data engineering", "ETL", "orchestration", "validation", "CI/CD", "Terraform", "structured data modelling", "Looker Studio"],
 			highlights: [
@@ -125,7 +125,7 @@ window.siteData = {
 		{
 			title: "OpenEvolve AI Experiments",
 			hidden: true,
-			status: "Public repo",
+			status: "Public Github repo",
 			description: "Experiments with LLM-driven optimisation workflows, automated code improvement, program synthesis, structured prompts, scoring functions, and iterative refinement.",
 			tags: ["GenAI", "agentic AI", "LLM workflows", "automated evaluation", "program synthesis", "reproducible experimentation"],
 			highlights: [
@@ -182,41 +182,68 @@ window.siteData = {
 		},
 		{
 			title: "Data engineering & MLOps",
-			items: ["Python and SQL pipelines", "PySpark and Databricks", "Bronze/Silver/Gold layers", "MLflow", "scheduled inference"]
+			items: ["Python and SQL pipelines", "PySpark and Databricks", "Bronze/Silver/Gold layers", "MLflow", "Scheduled inference"]
 		},
 		{
 			title: "BI & visual analytics",
-			items: ["KPI design", "dashboard planning", "data storytelling", "Power BI/Tableau portfolio in progress"]
+			items: ["KPI design", "Dashboard planning", "Data storytelling", "Power BI & Tableau", "Portfolio in progress"]
 		},
 		{
-			title: "Research software & reproducibility",
-			items: ["Modularisation", "documentation", "validation logic", "workflow design", "scientific computing"]
+			title: "Programming & reproducibility",
+			items: ["Modularisation", "Documentation", "Validation logic", "Workflow design", "Scientific computing"]
 		},
 		{
-			title: "Communication & stakeholder analytics",
-			items: ["Decision-ready summaries", "technical documentation", "collaborator-facing tools", "insight briefs"]
+			title: "Communication & stakeholder enegament",
+			items: ["Decision-ready summaries", "Technical documentation", "Collaborator-facing tools", "Insight briefs"]
 		}
 	],
 	experience: [
 		{
-			role: "Postdoctoral Researcher / Research Software Developer",
-			org: "UWA/ICRAR",
-			text: "Re-engineering spatially resolved galaxy spectra workflows into reusable, documented research software."
+			role: "Postdoctoral Researcher & Research Software Developer",
+			org: "The University of Western Australia",
+			period: "Oct 2025 – present",
+			text: "Re-engineering spatially resolved galaxy spectra analysis workflows into reusable, documented research software for reproducible community use.",
+			details: [
+				"Refactoring PhD-era notebook-based scripts into a modular Python package with validation logic and user-facing documentation.",
+				"Applying AI-assisted and agentic coding workflows (LLM-based refactoring, debugging, and design iteration) to accelerate development.",
+				"Improving workflow design, data validation, and extensibility for downstream scientific users.",
+				"Software in preparation for community release."
+			]
 		},
 		{
 			role: "Doctoral Researcher",
-			org: "UWA/ICRAR",
-			text: "Completed PhD research involving complex scientific datasets, statistical modelling, and reproducible analysis."
+			org: "The University of Western Australia",
+			period: "2022 – 2025",
+			text: "Completed a PhD on the structural and photometric properties of massive galaxies in the early universe, requiring large-scale archival data engineering, statistical modelling, and reproducible scientific software.",
+			details: [
+				"Built an R-based archival pipeline to construct a master metadata catalogue of 249,861 calibrated HST images spanning ~26 TB of data.",
+				"Developed a spatial overlap detection algorithm to group repeated observations, producing 38,027 single-visit and 7,893 multi-visit mosaics.",
+				"Extended the workflow to support joint HST-JWST image matching, alignment, multiband photometry, and quality control.",
+				"Applied statistical modelling and uncertainty-aware inference to analyse galaxy morphology and stellar populations.",
+				"Tools: R, Python, statistical inference, large-scale data engineering, scientific computing."
+			]
 		},
 		{
 			role: "Research Assistant",
 			org: "University of Hong Kong",
-			text: "Supported astronomy research and teaching workflows, including observation planning and analysis materials."
+			period: "2018 – 2022",
+			text: "Supported astronomy research and teaching workflows, contributing to observational planning and analysis tooling.",
+			details: [
+				"Assisted with observational planning and scheduling for telescope-based data collection.",
+				"Developed and maintained analysis materials for teaching and collaborative research projects.",
+				"Tools: Python, data analysis, observational astronomy."
+			]
 		},
 		{
 			role: "Quantitative Developer Intern",
 			org: "Mai Capital Ltd",
-			text: "Built quantitative tooling in a finance context, connecting modelling work with practical software delivery."
+			period: "2019",
+			text: "Built quantitative analytical tools in a financial context, connecting statistical modelling with practical software delivery.",
+			details: [
+				"Developed quantitative tooling for financial modelling and analysis workflows.",
+				"Translated statistical model outputs into actionable, software-delivered artefacts.",
+				"Tools: Python, quantitative finance, statistical modelling."
+			]
 		}
 	],
 	beyondWork: {

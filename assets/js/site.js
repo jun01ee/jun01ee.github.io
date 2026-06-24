@@ -82,21 +82,6 @@
 			'</aside>';
 	}
 
-	function renderSnapshot() {
-		var target = document.querySelector('[data-render="snapshot"]');
-		if (!target) {
-			return;
-		}
-
-		target.innerHTML = (data.snapshot || []).map(function (item, index) {
-			return '<article class="snapshot-card">' +
-				'<span class="snapshot-card__label" aria-hidden="true">' + String(index + 1).padStart(2, "0") + '</span>' +
-				'<h3>' + escapeHtml(item.title) + '</h3>' +
-				'<p>' + escapeHtml(item.text) + '</p>' +
-				'</article>';
-		}).join("");
-	}
-
 	function renderProjects() {
 		var target = document.querySelector('[data-render="projects"]');
 		if (!target) {
@@ -145,12 +130,26 @@
 		}
 
 		target.innerHTML = (data.experience || []).map(function (item) {
+			var periodHtml = item.period
+				? '<p class="timeline-item__period">' + escapeHtml(item.period) + '</p>'
+				: "";
+			var detailsHtml = (item.details && item.details.length)
+				? '<ul class="timeline-item__details">' +
+					item.details.map(function (d) {
+						return '<li>' + escapeHtml(d) + '</li>';
+					}).join("") +
+					'</ul>'
+				: "";
 			return '<article class="timeline-item">' +
-				'<div>' +
+				'<div class="timeline-item__meta">' +
 				'<h3 class="timeline-item__role">' + escapeHtml(item.role) + '</h3>' +
 				'<p class="timeline-item__org">' + escapeHtml(item.org) + '</p>' +
+				periodHtml +
 				'</div>' +
-				'<p>' + escapeHtml(item.text) + '</p>' +
+				'<div class="timeline-item__content">' +
+				'<p class="timeline-item__summary">' + escapeHtml(item.text) + '</p>' +
+				detailsHtml +
+				'</div>' +
 				'</article>';
 		}).join("");
 	}
@@ -187,10 +186,10 @@
 	}
 
 	function renderYear() {
-		var target = document.querySelector('[data-render="year"]');
-		if (target) {
+		var targets = document.querySelectorAll('[data-render="year"]');
+		targets.forEach(function (target) {
 			target.textContent = String(new Date().getFullYear());
-		}
+		});
 	}
 
 	function bindImageFallbacks() {
@@ -288,40 +287,7 @@
 		});
 	}
 
-	function bindActiveNavigation() {
-		var links = Array.from(document.querySelectorAll(".site-nav a"));
-		var sections = links.map(function (link) {
-			return document.querySelector(link.getAttribute("href"));
-		}).filter(Boolean);
-
-		if (!("IntersectionObserver" in window) || !sections.length) {
-			return;
-		}
-
-		var observer = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				if (!entry.isIntersecting) {
-					return;
-				}
-				links.forEach(function (link) {
-					link.removeAttribute("aria-current");
-					if (link.getAttribute("href") === "#" + entry.target.id) {
-						link.setAttribute("aria-current", "true");
-					}
-				});
-			});
-		}, {
-			rootMargin: "-35% 0px -55% 0px",
-			threshold: 0
-		});
-
-		sections.forEach(function (section) {
-			observer.observe(section);
-		});
-	}
-
 	function init() {
-		renderSnapshot();
 		renderProjects();
 		renderCapabilities();
 		renderExperience();
@@ -329,7 +295,6 @@
 		renderYear();
 		bindImageFallbacks();
 		bindImageViewer();
-		bindActiveNavigation();
 	}
 
 	if (document.readyState === "loading") {
