@@ -1,7 +1,7 @@
 window.siteData = {
 	snapshot: [
 		{
-			title: "PhD-trained quantitative modeller",
+			title: "Data professional with advanced statistical modelling experience",
 			text: "Experienced in statistical inference, uncertainty-aware analysis, and translating messy scientific datasets into defensible results."
 		},
 		{
