@@ -27,6 +27,32 @@ window.siteData = {
 	],
 	projects: [
 		{
+			title: "Movie Financial Performance Dashboard",
+			status: "Completed · Public GitHub repo",
+			description: "Power BI portfolio project that turns a movie spreadsheet exercise into a reproducible analytics pipeline and semantic model, enriched with TMDb data for 2,371 movies released from 2010 to 2025.",
+			tags: ["Power BI", "Python", "TMDb API", "data modelling", "ETL", "analytics", "data validation"],
+			highlights: [
+				"Restructured the source data into staging, fact, dimension, and bridge tables for a reusable Power BI semantic model.",
+				"Expanded and enriched the dataset with TMDb movie, genre, credit, poster, and person data covering 2,371 movies and 7,007 people.",
+				"Built interactive report pages for financial overview, genre analysis, and director and cast details, with release-year filtering and movie tooltips.",
+				"Created a reproducible Python pipeline with cached API responses, publishable CSV outputs, validation, source notes, and a data dictionary."
+			],
+			links: [
+				{
+					label: "GitHub",
+					url: "https://github.com/jun01ee/movie-dashboard",
+					icon: "fab fa-github"
+				}
+			],
+			demo: {
+				type: "image",
+				image: "https://raw.githubusercontent.com/jun01ee/movie-dashboard/master/assets/screenshots/Overview.png",
+				alt: "Overview page of the Movie Financial Performance Power BI dashboard",
+				caption: "Power BI overview of movie count, revenue, profit, and ROI across genres, people, release timing, budgets, and box-office revenue.",
+				fit: "contain"
+			}
+		},
+		{
 			title: "Solar Yield Forecasting MLOps Pipeline",
 			status: "Public GitHub repo",
 			description: "Databricks Free Edition pipeline for solar energy forecasting, designed as operational evidence for ETL, validation, ML forecasting, scheduled inference, and reproducible MLOps.",
