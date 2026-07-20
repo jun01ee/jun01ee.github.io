@@ -91,10 +91,10 @@
 		target.innerHTML = (data.projects || []).filter(function (project) {
 			return !project.hidden;
 		}).map(function (project) {
-			return '<article class="project-card">' +
+			return '<article class="project-card" id="' + escapeHtml(project.slug) + '">' +
 				'<div class="project-card__body">' +
 				'<div class="project-card__header">' +
-				'<h3>' + escapeHtml(project.title) + '</h3>' +
+				'<h3><a href="#' + escapeHtml(project.slug) + '">' + escapeHtml(project.title) + '</a></h3>' +
 				'<span class="project-card__status">' + escapeHtml(project.status) + '</span>' +
 				'</div>' +
 				'<p class="project-card__description">' + escapeHtml(project.description) + '</p>' +

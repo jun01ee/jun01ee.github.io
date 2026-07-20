@@ -385,6 +385,7 @@ body:not(.page-home) main {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) 360px;
 	gap: 1.2rem;
+	scroll-margin-top: calc(var(--header-height) + 1rem);
 	padding: 1.25rem;
 	border: 1px solid var(--line);
 	border-radius: 8px;

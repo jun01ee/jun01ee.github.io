@@ -27,6 +27,7 @@ window.siteData = {
 	],
 	projects: [
 		{
+			slug: "movie-dashboard",
 			title: "Movie Financial Performance Dashboard",
 			status: "Completed · Public GitHub repo",
 			description: "Power BI portfolio project that turns a movie spreadsheet exercise into a reproducible analytics pipeline and semantic model, enriched with TMDb data for 2,371 movies released from 2010 to 2025.",
@@ -53,6 +54,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "solar-yield-forecasting",
 			title: "Solar Yield Forecasting MLOps Pipeline",
 			status: "Public GitHub repo",
 			description: "Databricks Free Edition pipeline for solar energy forecasting, designed as operational evidence for ETL, validation, ML forecasting, scheduled inference, and reproducible MLOps.",
@@ -79,6 +81,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "galaxy-spectra-analysis",
 			title: "Spatially Resolved Galaxy Spectra Analysis Software",
 			status: "Public release planned",
 			description: "Rebuilding PhD-era spatially resolved galaxy spectra analysis code into modular, documented research software for reproducible community use, with improved workflow design, validation, AI-assisted development, and extensibility.",
@@ -105,6 +108,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "visualisation-dashboarding",
 			title: "Visualisation / Dashboarding Portfolio",
 			hidden: true,
 			status: "Coming soon",
@@ -124,6 +128,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "data-engineering-zoomcamp",
 			title: "Data Engineering Zoomcamp Capstone",
 			status: "Public GitLab repo",
 			description: "End-to-end data engineering capstone covering ingestion, transformation, validation, orchestration, structured modelling, testing, CI/CD, documentation, and Terraform-managed infrastructure. Interactive dashboards were created using Looker Studio (a free, web-based visualization tool in the Google ecosystem, similar to Tableau/Power BI).",
@@ -149,6 +154,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "openevolve-ai-experiments",
 			title: "OpenEvolve AI Experiments",
 			hidden: true,
 			status: "Public Github repo",
@@ -174,6 +180,7 @@ window.siteData = {
 			}
 		},
 		{
+			slug: "astronomical-data-pipeline",
 			title: "Large-Scale Astronomical Data Pipeline",
 			status: "Private research pipeline",
 			description: "R-based archival imaging workflow for metadata construction, spatial overlap detection, multi-visit grouping, and joint HST-JWST image processing.",
